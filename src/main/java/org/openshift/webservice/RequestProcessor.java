@@ -14,7 +14,7 @@ import java.util.List;
  * Created by spousty on 10/26/15.
  */
 
-@Path("/players")
+@Path("/")
 public class RequestProcessor {
 
     @Inject
@@ -22,6 +22,7 @@ public class RequestProcessor {
 
     //get all the characters
     // TODO this needs to be secured for admins only
+    @Path("admin")
     @GET()
     @Produces("application/json")
     public List getAllPlayers(){
@@ -47,6 +48,7 @@ public class RequestProcessor {
 
     //TODO this needs to work with players and a token from the j1dd service
     @POST
+    @Path("players")
     @Consumes("application/json")
     @Produces("application/json")
     public HashMap insertACharacter(Character character){
