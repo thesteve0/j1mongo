@@ -71,8 +71,8 @@ public class RequestProcessor {
         }
 
         //now make it look pretty
-        HashMap holder = new HashMap<String, Object>();
-        return holder;
+        //HashMap holder = charDBObject.get;
+        return charDBObject;
 
     }
 }
