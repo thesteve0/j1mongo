@@ -28,7 +28,9 @@ public class RequestProcessor {
         ArrayList allDDPeople = new ArrayList();
         DB db = dbConnection.getDB();
         DBCollection playerListCollection = db.getCollection("players");
-        DBCursor cursor = playerListCollection.find();
+        BasicDBObject sortDoc = new BasicDBObject("_id", -1);
+
+        DBCursor cursor = playerListCollection.find().sort(sortDoc );
         try {
             while(cursor.hasNext()) {
 
