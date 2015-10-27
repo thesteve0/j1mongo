@@ -15,7 +15,7 @@ import java.util.List;
  * Created by spousty on 10/26/15.
  */
 
-@Path("/db")
+@Path("/players")
 public class RequestProcessor {
 
     @Inject
@@ -52,7 +52,6 @@ public class RequestProcessor {
 
     //TODO this needs to work with players and a token from the j1dd service
     @POST
-    @Path("park")
     @Consumes("application/json")
     @Produces("application/json")
     public HashMap insertACharacter(Character character){
@@ -64,8 +63,9 @@ public class RequestProcessor {
 
         DB db = dbConnection.getDB();
         DBCollection playerListCollection = db.getCollection("players");
+        BasicDBObject charDBObject = new BasicDBObject(character.toHashMap());
         try{
-            playerListCollection.insert(character, WriteConcern.SAFE);
+            playerListCollection.insert(charDBObject, WriteConcern.SAFE);
         } catch (Exception e) {
             System.out.println("threw an exception: " + e.getClass() + " :: " + e.getMessage());
         }
