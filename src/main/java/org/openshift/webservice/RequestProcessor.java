@@ -58,18 +58,18 @@ public class RequestProcessor {
     public HashMap insertACharacter(Character character){
 
         // TODO
-        /*
-        BasicDBObject parkObject = new BasicDBObject("Name",park.getName());
-        parkObject.append("pos", park.getPos());
+
+        //BasicDBObject parkObject = new BasicDBObject("Name",park.getName());
+        //parkObject.append("pos", park.getPos());
 
         DB db = dbConnection.getDB();
-        DBCollection parkListCollection = db.getCollection("parks");
+        DBCollection playerListCollection = db.getCollection("players");
         try{
-            parkListCollection.insert(parkObject, WriteConcern.SAFE);
+            playerListCollection.insert(character, WriteConcern.SAFE);
         } catch (Exception e) {
             System.out.println("threw an exception: " + e.getClass() + " :: " + e.getMessage());
         }
-        */
+
         //now make it look pretty
         HashMap holder = new HashMap<String, Object>();
         return holder;

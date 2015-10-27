@@ -1,5 +1,7 @@
 package org.openshift.model;
 
+import com.mongodb.BasicDBObject;
+
 import java.util.*;
 
 import static java.util.Arrays.asList;
@@ -7,7 +9,7 @@ import static java.util.Arrays.asList;
 /**
  * Created by spousty on 8/22/14.
  */
-public class Character {
+public class Character extends BasicDBObject {
 
     private HashMap allAttributes = new HashMap(18);
 
