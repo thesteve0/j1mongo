@@ -12,7 +12,7 @@ import static java.util.Arrays.asList;
 public class Character {
 
     //private HashMap allAttributes = new HashMap(18);
-    private int goldpieces, HitPoints, constitution, charisma, wisdom, intelligence, strength;
+    private int goldpieces, hitpoints, constitution, charisma, wisdom, intelligence, strength, dexterity;
     private String race = "";
     private String name = "";
     private String playerclass = "";
@@ -24,7 +24,7 @@ public class Character {
     public HashMap<String, Object> toHashMap (){
         HashMap<String, Object> theMap = new HashMap<String, Object>(18);
         theMap.put("goldpieces", goldpieces);
-        theMap.put("hitpoints", HitPoints);
+        theMap.put("hitpoints", hitpoints);
         theMap.put("constitution", constitution);
         theMap.put("charisma", charisma);
         theMap.put("wisdom", wisdom);
@@ -33,14 +33,15 @@ public class Character {
         theMap.put("race", race);
         theMap.put("name", name);
         theMap.put("playerclass", playerclass);
+        theMap.put("dexterity", dexterity);
 
         return theMap;
 
     }
 
-    public Character(int goldpieces, int hitpoints, int constitution, int charisma, int wisdom, int intelligence, int strength, String race, String name, String playerclass) {
+    public Character(int goldpieces, int hitpoints, int constitution, int charisma, int wisdom, int intelligence, int strength, int dexterity, String race, String name, String playerclass) {
         this.goldpieces = goldpieces;
-        this.HitPoints = hitpoints;
+        this.hitpoints = hitpoints;
         this.constitution = constitution;
         this.charisma = charisma;
         this.wisdom = wisdom;
@@ -49,6 +50,15 @@ public class Character {
         this.race = race;
         this.name = name;
         this.playerclass = playerclass;
+        this.dexterity = dexterity;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
     }
 
     public int getGoldpieces() {
@@ -60,11 +70,11 @@ public class Character {
     }
 
     public int getHitpoints() {
-        return HitPoints;
+        return hitpoints;
     }
 
     public void setHitpoints(int hitpoints) {
-        this.HitPoints = hitpoints;
+        this.hitpoints = hitpoints;
     }
 
     public int getConstitution() {
