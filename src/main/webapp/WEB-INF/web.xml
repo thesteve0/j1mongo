@@ -19,6 +19,34 @@
             <servlet-name>javax.ws.rs.core.Application</servlet-name>
             <url-pattern>/ws/*</url-pattern>
         </servlet-mapping>
-         
+
+        <security-constraint>
+		    <web-resource-collection>
+		        <url-pattern>/ws/players/*</url-pattern>
+		    </web-resource-collection>
+		    <auth-constraint>
+		        <role-name>player</role-name>
+		    </auth-constraint>
+		</security-constraint>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/ws/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+	    	<login-config>
+		    <auth-method>keycloak</auth-method>
+		</login-config>
+
+		<security-role>
+		    <role-name>admin</role-name>
+		    <role-name>player</role-name>
+		</security-role>	
 </web-app>
 
