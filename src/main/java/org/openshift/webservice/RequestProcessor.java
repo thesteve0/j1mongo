@@ -34,7 +34,9 @@ public class RequestProcessor {
             while(cursor.hasNext()) {
 
                 //@Todo
-                DBObject dataValue = cursor.next();
+                BasicDBObject dataValue = (BasicDBObject) cursor.next();
+                dataValue.put("mongoid",  dataValue.getObjectId("_id").toString());
+                dataValue.remove("_id");
 
                 /*HashMap holder = new HashMap<String, Object>();
                 holder.put("name",dataValue.get("Name"));
