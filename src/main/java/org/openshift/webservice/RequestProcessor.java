@@ -21,7 +21,6 @@ public class RequestProcessor {
     private DBConnection dbConnection;
 
     //get all the characters
-    // TODO this needs to be secured for admins only
     @Path("admin")
     @GET()
     @Produces("application/json")
@@ -35,7 +34,7 @@ public class RequestProcessor {
 
                 BasicDBObject dataValue = (BasicDBObject) cursor.next();
                 dataValue.put("mongoid", dataValue.getObjectId("_id").toString());
-                dataValue.remove("_id");
+                //dataValue.remove("_id");
 
             }
         } finally {
@@ -46,7 +45,7 @@ public class RequestProcessor {
     }
 
 
-    //TODO this needs to work with players and a token from the j1dd service
+
     @POST
     @Path("players")
     @Consumes("application/json")
