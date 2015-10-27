@@ -72,6 +72,7 @@ public class RequestProcessor {
 
         //now make it look pretty
         //HashMap holder = charDBObject.get;
+        charDBObject.put("mongoid",  charDBObject.getObjectId("_id").toString());
         return charDBObject;
 
     }
