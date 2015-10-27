@@ -34,8 +34,7 @@ public class RequestProcessor {
 
                 BasicDBObject dataValue = (BasicDBObject) cursor.next();
                 dataValue.put("mongoid", dataValue.getObjectId("_id").toString());
-
-                //dataValue.remove("_id");
+                dataValue.remove("_id");
                 allDDPeople.add(dataValue);
 
             }
