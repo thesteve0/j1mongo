@@ -2,7 +2,6 @@ package org.openshift.webservice;
 
 import com.mongodb.*;
 import org.openshift.data.DBConnection;
-import org.openshift.model.*;
 import org.openshift.model.Character;
 
 import javax.inject.Inject;
@@ -33,16 +32,9 @@ public class RequestProcessor {
         try {
             while(cursor.hasNext()) {
 
-                //@Todo
                 BasicDBObject dataValue = (BasicDBObject) cursor.next();
-                dataValue.put("mongoid",  dataValue.getObjectId("_id").toString());
+                dataValue.put("mongoid", dataValue.getObjectId("_id").toString());
                 dataValue.remove("_id");
-
-                /*HashMap holder = new HashMap<String, Object>();
-                holder.put("name",dataValue.get("Name"));
-                holder.put("position", dataValue.get("pos"));
-                holder.put("id", dataValue.get("_id").toString());*/
-                allDDPeople.add(dataValue);
 
             }
         } finally {
@@ -59,10 +51,6 @@ public class RequestProcessor {
     @Produces("application/json")
     public HashMap insertACharacter(Character character){
 
-        // TODO
-
-        //BasicDBObject parkObject = new BasicDBObject("Name",park.getName());
-        //parkObject.append("pos", park.getPos());
 
         DB db = dbConnection.getDB();
         DBCollection playerListCollection = db.getCollection("players");
@@ -74,7 +62,6 @@ public class RequestProcessor {
         }
 
         //now make it look pretty
-        //HashMap holder = charDBObject.get;
         charDBObject.put("mongoid",  charDBObject.getObjectId("_id").toString());
         charDBObject.remove("_id");
         return charDBObject;
