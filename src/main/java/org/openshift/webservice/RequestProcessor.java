@@ -35,11 +35,12 @@ public class RequestProcessor {
 
                 //@Todo
                 DBObject dataValue = cursor.next();
-                HashMap holder = new HashMap<String, Object>();
+
+                /*HashMap holder = new HashMap<String, Object>();
                 holder.put("name",dataValue.get("Name"));
                 holder.put("position", dataValue.get("pos"));
-                holder.put("id", dataValue.get("_id").toString());
-                allDDPeople.add(holder);
+                holder.put("id", dataValue.get("_id").toString());*/
+                allDDPeople.add(dataValue);
 
             }
         } finally {
